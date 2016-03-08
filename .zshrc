@@ -17,7 +17,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Plugins to load for zsh
-plugins=(git osx sudo)
+plugins=(git osx sudo brew chucknorris pass)
 
 #Load the oh-my-zsh config
 source "${ZSH}/oh-my-zsh.sh"

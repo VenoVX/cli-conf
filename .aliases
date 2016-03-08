@@ -1,31 +1,9 @@
 #Common
 alias cls="clear"
 alias md="makedir"
-alias xcopy="cp"
-
-#Laravel
-alias artisan="php artisan"
-alias serve="php artisan serve"
-alias migrate="php artisan migrate"
-alias rollback="php artisan migrate:rollback"
-alias refresh="php artisan migrate:refresh"
-alias reset="php artisan migrate:reset"
-alias seed="php artisan db:seed"
-alias tinker="php artisan tinker"
-
-#Homestead
-function homestead() {
-    sh -c "cd ${HOMESTEAD} && exec vagrant ${1}"
-}
-alias up="homestead up"
-alias down="homestead halt"
-alias provision="homestead provision"
 
 #Network
 alias wake="wakeonlan"
 
 #Dumb-dumb needs to learn to use vim instead of nano
 alias nano=vim
-
-#Misc
-alias syncplay="source activate syncplay && python ${SYNCPLAY}/syncplayClient.py > /dev/null & source deactivate"
