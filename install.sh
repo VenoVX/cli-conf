@@ -4,10 +4,7 @@ source "${HOME}/cli-conf/.boot"
 
 #Prepare the computer, install brew etc.
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install htop tmux vim tree wget cmake iperf python3 rbenv sqlite ssh-copy-id wakeonlan youtube-dl 
-curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin
-mv /usr/local/bin/composer.phar /usr/local/bin/composer
-chmod +x /usr/local/bin/composer
+brew install htop tmux vim tree wget iperf python3 ssh-copy-id wakeonlan
 
 #Remove any annoying already existing file
 rm "${HOME}/.ansi-colors"
