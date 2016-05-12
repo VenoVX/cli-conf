@@ -2,7 +2,7 @@
 source "${HOME}/cli-conf/.boot"
 
 #Theme
-ZSH_THEME="cloud"
+ZSH_THEME="gallifrey"
 
 #Using case-sensitive completion
 CASE_SENSITIVE="true"
