@@ -6,9 +6,8 @@ source "${HOME}/cli-conf/.boot"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install htop tmux vim tree wget iperf python3 ssh-copy-id wakeonlan cowsay fortune atom
 
-#Install pip and some tools
-sudo easy_install pip
-sudo pip install ansible
+#Install atom packages
+apm install git-plus git-projects minimap minimap-cursorline minimap-git-diff tree-view-git-status
 
 #Remove any annoying already existing file
 rm "${HOME}/.ansi-colors"
