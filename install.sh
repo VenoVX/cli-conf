@@ -4,7 +4,7 @@ source "${HOME}/cli-conf/.boot"
 
 #Prepare the computer, install brew etc.
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install htop tmux vim tree wget iperf python3 ssh-copy-id wakeonlan
+brew install htop tmux vim tree wget iperf python3 ssh-copy-id wakeonlan cowsay fortune
 
 #Remove any annoying already existing file
 rm "${HOME}/.ansi-colors"
@@ -49,3 +49,5 @@ elif [[ $ZSH_NAME == *"zsh"*  ]]; then
 else
 	echo "ERROR: No suitable shell config found!"
 fi
+
+chsh -s /bin/zsh $USER
