@@ -6,6 +6,10 @@ source "${HOME}/cli-conf/.boot"
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install htop tmux vim tree wget iperf python3 ssh-copy-id wakeonlan cowsay fortune
 
+#Install pip and some tools
+sudo easy_install pip
+sudo pip install ansible
+
 #Remove any annoying already existing file
 rm "${HOME}/.ansi-colors"
 rm "${HOME}/.bash_profile"
