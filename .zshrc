@@ -17,7 +17,19 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Plugins to load for zsh
-plugins=(git osx sudo brew chucknorris pass)
+if [[ "$(uname)" == "Darwin" ]]; then
+  plugins=(git aws composer wd osx sudo brew vim pass)
+else
+  plugins=(git aws composer wd sudo vim pass debian)
+fi
+
+HIST_STAMPS="dd.mm.yyyy"
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nano'
+else
+  export EDITOR='vim'
+fi
 
 #Load the oh-my-zsh config
 source "${ZSH}/oh-my-zsh.sh"

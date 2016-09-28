@@ -2,9 +2,6 @@
 source "${HOME}/cli-conf/.boot"
 
 #Activate a couple of modules in FSMaxB's .bashrc
-FREESPACE=''
-GITBRANCH=''
-FORTUNE=''
 NOTIFICATIONS=''
 
 #Include FSMaxB's .bashrc

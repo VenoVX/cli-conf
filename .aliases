@@ -5,5 +5,4 @@ alias md="makedir"
 #Network
 alias wake="wakeonlan"
 
-#Dumb-dumb needs to learn to use vim instead of nano
-alias nano=vim
+alias nano="vim"

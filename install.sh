@@ -1,15 +1,33 @@
 #!/bin/bash
 #Initialize
+cd ~/cli-conf
+git submodule update --remote --init --recursive
+git pull
+cd ~
 source "${HOME}/cli-conf/.boot"
 
-#Prepare the computer, install brew etc.
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install htop tmux vim tree wget iperf python3 ssh-copy-id wakeonlan cowsay fortune atom
 
+system=$(uname)
+
+if [ "${system}" == "Darwin" ]; then
+	#Prepare the computer, install brew etc.
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	brew install htop tmux vim tree wget iperf python3 ssh-copy-id wakeonlan cowsay fortune atom
+elif [ "${system}" == "Linux" ]; then
+	if [ -f /etc/debian_version ]; then
+    sudo apt-get update
+		sudo apt-get install htop tmux tree wget curl iperf python3 wakeonlan cowsay fortune software-properties-common python-software-properties -y
+		sudo add-apt-repository ppa:webupd8team/atom -y
+		sudo apt-get update
+		sudo apt-get install atom
+	elif [ -f /etc/redhat-release ]; then
+    echo "RedHat based distros are not supported!"
+	fi
+fi
 #Install atom packages
-apm install git-plus git-projects minimap minimap-cursorline minimap-git-diff tree-view-git-status
+apm install git-plus git-projects minimap minimap-cursorline minimap-git-diff tree-view-git-status keyboard-localization
 
-#Remove any annoying already existing file
+#Remove any already existing file
 rm "${HOME}/.ansi-colors"
 rm "${HOME}/.bash_profile"
 rm "${HOME}/.bashrc"
@@ -20,9 +38,11 @@ rm "${HOME}/.nvim"
 rm "${HOME}/.nvimrc"
 rm "${HOME}/.config/htoprc"
 rm "${HOME}/.gitconfig"
+rm "${HOME}/.ssh/config"
 
 #Make a new .config directory for the htoprc to live in
-mkdir "${HOME}/.config"
+mkdir -p "${HOME}/.config"
+mkdir -p "${HOME}/.ssh"
 
 #Create some softlink to get most stuff setup
 ln -s "${CLI_CONF}/.bash_profile" "${HOME}"
@@ -33,6 +53,8 @@ ln -s "${FSMAXB}/.vimrc" "${HOME}"
 ln -s "${HOME}/.vim" "${HOME}/.nvim"
 ln -s "${HOME}/.vimrc" "${HOME}/.nvimrc"
 ln -s "${FSMAXB}/htoprc" "${HOME}/.config"
+
+cp "${HOME}/cli-conf/ssh.cfg" "${HOME}/.ssh/config"
 
 #Hack for FSMaxB's .bashrc
 ln -s "${FSMAXB}/.ansi-colors" "${HOME}"

@@ -1,5 +1,6 @@
 [user]
 	name = Daniel Bacher
 	email = danielbacher@phill93.de
+	signingkey = D83A1682B614FDAC
 [push]
 	default = simple
