@@ -5,4 +5,4 @@ alias md="makedir"
 #Network
 alias wake="wakeonlan"
 
-alias nano="vim"
+
