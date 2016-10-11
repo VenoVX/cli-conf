@@ -16,7 +16,7 @@ if [ "${system}" == "Darwin" ]; then
 elif [ "${system}" == "Linux" ]; then
 	if [ -f /etc/debian_version ]; then
     sudo apt-get update
-		sudo apt-get install htop tmux tree wget curl iperf python3 wakeonlan cowsay fortune software-properties-common python-software-properties -y
+		sudo apt-get install zsh  htop tmux tree wget curl iperf python3 wakeonlan cowsay fortune software-properties-common python-software-properties g++ -y
 		sudo add-apt-repository ppa:webupd8team/atom -y
 		sudo apt-get update
 		sudo apt-get install atom
@@ -75,4 +75,4 @@ else
 	echo "ERROR: No suitable shell config found!"
 fi
 
-chsh -s /bin/zsh $USER
+chsh -s /usr/bin/zsh $USER
